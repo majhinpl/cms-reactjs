@@ -1,10 +1,14 @@
-import React from 'react'
-import Form from './components/Form';
+import React from "react";
+import Form from "./components/Form";
 
 const Register = ({}) => {
-  return (
-    <Form  type="Register"/>
-  );
-}
+  const Register = () => {
+    const handleRegister = () => {
 
-export default Register
+    }
+
+  };
+  return <Form type="Register" onSubmit={handleRegister} />;
+};
+
+export default Register;

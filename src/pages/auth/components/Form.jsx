@@ -1,7 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 const Form = ({ type }) => {
+  const [data, setData] = useState({
+    email: "",
+    password: "",
+  });
+
+  const changeHandle = (e) => {
+    const { name, value } = e.target;
+
+    setData({
+      ...data,
+      [name]: value,
+    });
+  };
+
+  const submittedHandle = (e) => {
+    e.preventDeafult();
+   
+  };
+  console.log(data);
+
   return (
     <section className="bg-gray-50 dark:bg-gray-900">
       <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
@@ -10,7 +30,7 @@ const Form = ({ type }) => {
             <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
               {type === "login" ? "Login in to your account" : ""}
             </h1>
-            <form className="space-y-4 md:space-y-6" action="#">
+            <form className="space-y-4 md:space-y-6" onSubmit={submittedHandle}>
               <div>
                 <label
                   htmlFor="email"
@@ -25,6 +45,7 @@ const Form = ({ type }) => {
                   className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   placeholder="name@company.com"
                   required
+                  onChange={changeHandle}
                 />
               </div>
               <div>
@@ -41,6 +62,7 @@ const Form = ({ type }) => {
                   placeholder="••••••••"
                   className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   required
+                  onChange={changeHandle}
                 />
               </div>
 
@@ -81,10 +103,7 @@ const Form = ({ type }) => {
                 {type === "Register"
                   ? "Already have an account?"
                   : "Don’t have an account yet?"}{" "}
-                <Link
-                  
-                  className="font-medium text-primary-600 hover:underline dark:text-primary-500"
-                >
+                <Link className="font-medium text-primary-600 hover:underline dark:text-primary-500">
                   {type === "Register" ? "Sign in" : "Sign up"}
                 </Link>
               </p>
