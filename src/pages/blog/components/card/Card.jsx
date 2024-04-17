@@ -1,19 +1,17 @@
 import React from "react";
+import { LuSignalMedium } from "react-icons/lu";
 import { MdKeyboardArrowRight } from "react-icons/md";
 import { Link } from "react-router-dom";
 
 const Card = () => {
   return (
     <div>
-      <div className="flex flex-col w-[400px] h-[500px] m-1 border border-slate-900">
-        <div className="flex justify-between px-2 py-1">
-          <span>{Date.now()}</span>
-          <span>views count will be here</span>
-        </div>
-        <div className="blogHeading">
-          <h1 className="mt-6 mb-6 text-lg font-semibold text-gray-900">
-            10 Tips for Crafting the Perfect UX Portfolio
-          </h1>
+      <div className="flex flex-col w-[400px] h-[500px] m-1">
+        <div className="flex justify-between px-2 py-1 mb-2">
+          <span className="text-sm">3 April 2024</span>
+          <span className="flex">
+            <LuSignalMedium /> <span className="text-sm">123,412</span>
+          </span>
         </div>
         <div className="mb-4">
           <img
@@ -24,6 +22,11 @@ const Card = () => {
             loading="lazy"
           />
         </div>
+        <div className="blogHeading">
+          <h1 className="mt-6 text-lg font-semibold text-gray-900">
+            10 Tips for Crafting the Perfect UX Portfolio
+          </h1>
+        </div>
         <div className="blogDetails items-start">
           <p className="mt-4 w-full text-sm leading-normal text-gray-600 ">
             Learn how to showcase your design skills and stand out in a crowded
@@ -33,7 +36,7 @@ const Card = () => {
         </div>
         <div className="btn">
           <Link to="/blog/id">
-            <button className="">
+            <button className="flex items-center shadow-md py-2">
               Read more <MdKeyboardArrowRight />
             </button>
           </Link>

@@ -1,11 +1,13 @@
 import React from "react";
 import Layout from "../../components/layout/Layout";
 import Form from "./components/form/Form";
+import axios from "axios";
 
-const AddBlog = () => {
+const AddBlog = ({data}) => {  
+
   return (
     <Layout>
-      <Form />
+      <Form type="Create" />
     </Layout>
   );
 };

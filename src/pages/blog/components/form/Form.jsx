@@ -1,9 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
 import { LuFilePlus } from "react-icons/lu";
 
 const Form = ({ type }) => {
+  const [data, setData] = useState({
+    title: "",
+    subtitle: "",
+    description: "",
+    category: "",
+    image: "",
+  });
+
+  const hendleChange = (e) => {
+    const { name, value } = e.target;
+    setData({
+      ...data,
+      [name]: name === "image" ? e.target.files[0] : value,
+    });
+  };
+
   return (
-    <div className="write pt-5 mx-auto container flex flex-col flex-wrap">
+    <div
+      className="write pt-5 mx-auto container flex 
+    flex-col flex-wrap"
+    >
+      <div className="mx-auto underline mb-4">
+        <h1 className="uppercase text-3xl">{type} blog</h1>
+      </div>
       <img
         src="https://images.pexels.com/photos/20147085/pexels-photo-20147085/free-photo-of-a-mountain-is-seen-in-the-distance-with-trees.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
         alt=""

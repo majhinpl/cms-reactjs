@@ -5,7 +5,7 @@ import Form from "./components/form/Form";
 const EditBlog = () => {
   return (
     <Layout>
-      <Form />
+      <Form type="Edit" />
     </Layout>
   );
 };

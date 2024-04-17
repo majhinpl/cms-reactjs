@@ -1,9 +1,11 @@
 import React from "react";
 import Form from "./components/Form";
 
-const Login = () => {
+const Login = ({type}) => {
+  
+
   return (
-    <Form type="login"/>
+    <Form type="Login"/>
   );
 };
 

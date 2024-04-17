@@ -77,6 +77,28 @@ const SingleBlog = () => {
             </ul>
           </section>
         </div>
+        <div className="flex gap-6">
+          <div className="text-xl flex gap-4 mt-6">
+            <p>Author</p>
+            <p>Category</p>
+          </div>
+          <div className="flex flex-col space-y-2 md:flex-row md:space-x-2 md:space-y-0 mt-4">
+            <Link to="/blogs/edit">
+              <button
+                type="button"
+                className="rounded-md border border-black px-3 py-2 text-sm font-semibold text-black shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+              >
+                Edit This Page
+              </button>
+            </Link>
+            <button
+              type="button"
+              className="rounded-md border border-yellow-600 px-3 py-2 text-sm font-semibold text-yellow-600 shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-yellow-600"
+            >
+              Delete This Page
+            </button>
+          </div>
+        </div>
       </div>
     </Layout>
   );
