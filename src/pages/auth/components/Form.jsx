@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-const Form = ({ type }) => {
+const Form = ({ type, onSubmit }) => {
   const [data, setData] = useState({
     email: "",
     password: "",
@@ -18,9 +18,8 @@ const Form = ({ type }) => {
 
   const submittedHandle = (e) => {
     e.preventDeafult();
-   
+    onSubmit(data);
   };
-  console.log(data);
 
   return (
     <section className="bg-gray-50 dark:bg-gray-900">

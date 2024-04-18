@@ -2,7 +2,7 @@ import React from 'react'
 
 const Pagination = () => {
   return (
-    <div className="w-full border-t border-gray-300">
+    <div className="mx-auto container px-8 w-full border-t border-gray-300">
       <div className="mt-2 flex items-center justify-between">
         <div className="hidden md:block">
           <p>

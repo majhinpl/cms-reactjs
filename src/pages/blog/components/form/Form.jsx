@@ -20,7 +20,7 @@ const Form = ({ type }) => {
 
   return (
     <div
-      className="write pt-5 mx-auto container flex 
+      className="mx-auto container px-6 pt-5 flex 
     flex-col flex-wrap"
     >
       <div className="mx-auto underline mb-4">
@@ -29,10 +29,10 @@ const Form = ({ type }) => {
       <img
         src="https://images.pexels.com/photos/20147085/pexels-photo-20147085/free-photo-of-a-mountain-is-seen-in-the-distance-with-trees.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
         alt=""
-        className="ml-[150px] w-[70vw] h-[250px] object-cover rounded-md mb-2"
+        className="h-[250px] object-cover rounded-md mb-2"
       />
-      <form className="writeform relative">
-        <div className="writeFormGroup flex ml-[150px] items-center justify-around w-[70vw] shadow-lg flex-wrap">
+      <form className="mx-auto container writeform relative mt-4">
+        <div className="writeFormGroup flex items-center justify-around shadow-lg flex-wrap">
           <label htmlFor="fileInput">
             <LuFilePlus className="w-25 h-25 flex items-center justify-center rounded-full text-3xl cursor-pointer " />
           </label>
@@ -63,7 +63,7 @@ const Form = ({ type }) => {
             </select>
           </div>
         </div>
-        <div className="writeFormGroup ml-[150px]">
+        <div className="writeFormGroup">
           <textarea
             cols="30"
             rows="10"

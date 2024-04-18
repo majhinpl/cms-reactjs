@@ -2,7 +2,7 @@ import React from "react";
 
 const BlogSearch = () => {
   return (
-    <div className="flex flex-col space-y-8 pb-10 pt-12 md:pt-24">
+    <div className="mx-auto container flex items-center justify-center flex-col space-y-8 pb-10 pt-12 px-2 md:pt-24">
       <p className="text-3xl font-bold text-gray-900 md:text-5xl md:leading-10">
         Resources and insights
       </p>
