@@ -2,22 +2,27 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 const Form = ({ type, onSubmit }) => {
+  // store data
   const [data, setData] = useState({
     email: "",
+    username: "",
     password: "",
   });
 
-  const changeHandle = (e) => {
+  const handleChange = (e) => {
+    // collect data from input
     const { name, value } = e.target;
 
+    // collect data to store
     setData({
       ...data,
       [name]: value,
     });
   };
 
-  const submittedHandle = (e) => {
-    e.preventDeafult();
+  // send data
+  const handleSubmit = (e) => {
+    e.preventDefault();
     onSubmit(data);
   };
 
@@ -29,7 +34,7 @@ const Form = ({ type, onSubmit }) => {
             <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
               {type === "login" ? "Login in to your account" : ""}
             </h1>
-            <form className="space-y-4 md:space-y-6" onSubmit={submittedHandle}>
+            <form className="space-y-4 md:space-y-6" onSubmit={handleSubmit}>
               <div>
                 <label
                   htmlFor="email"
@@ -44,9 +49,28 @@ const Form = ({ type, onSubmit }) => {
                   className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   placeholder="name@company.com"
                   required
-                  onChange={changeHandle}
+                  onChange={handleChange}
                 />
               </div>
+              {type === "Register" && (
+                <div>
+                  <label
+                    htmlFor="username"
+                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  >
+                    Your username
+                  </label>
+                  <input
+                    type="text"
+                    name="username"
+                    id="username"
+                    className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    placeholder="username"
+                    required
+                    onChange={handleChange}
+                  />
+                </div>
+              )}
               <div>
                 <label
                   htmlFor="password"
@@ -61,7 +85,7 @@ const Form = ({ type, onSubmit }) => {
                   placeholder="••••••••"
                   className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   required
-                  onChange={changeHandle}
+                  onChange={handleChange}
                 />
               </div>
 
@@ -98,13 +122,29 @@ const Form = ({ type, onSubmit }) => {
               >
                 {type === "Login" ? "Sign in" : "Register"}
               </button>
+
               <p className="text-sm font-light text-gray-500 dark:text-gray-400">
-                {type === "Register"
+                {type === "Register" ? (
+                  <Link
+                    to="/login"
+                    className="font-medium text-primary-600 hover:underline dark:text-primary-500"
+                  >
+                    Go to login
+                  </Link>
+                ) : (
+                  <Link
+                    to="/register"
+                    className="font-medium text-primary-600 hover:underline dark:text-primary-500"
+                  >
+                    Go to register
+                  </Link>
+                )}
+                {/* {type === "Register"
                   ? "Already have an account?"
                   : "Don’t have an account yet?"}{" "}
                 <Link className="font-medium text-primary-600 hover:underline dark:text-primary-500">
                   {type === "Register" ? "Sign in" : "Sign up"}
-                </Link>
+                </Link> */}
               </p>
             </form>
           </div>
