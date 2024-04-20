@@ -11,7 +11,7 @@ const AddBlog = ({ data, onSubmit }) => {
     try {
       const response = await axios.post(`${baseUrl}/blog`, data, {
         headers: {
-          "Content-type": "multipart/form-data",
+          "Content-Type": "multipart/form-data",
           Authorization: localStorage.getItem("token"),
         },
       });

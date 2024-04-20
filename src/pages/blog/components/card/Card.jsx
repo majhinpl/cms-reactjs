@@ -5,10 +5,19 @@ import { Link } from "react-router-dom";
 
 const Card = ({ blog }) => {
   console.log(blog);
+
+  // Function to format the date
+  const formatDate = (dateString) => {
+    const options = { day: "numeric", month: "long", year: "numeric" };
+    return new Date(dateString).toLocaleDateString("en-US", options);
+  };
   return (
-    <div className="flex flex-col w-[400px] h-[500px] m-1 shadow-lg">
+    <div
+      className="flex flex-col w-[400px] h-[500px] m-1 shadow-lg"
+      key={blog._id}
+    >
       <div className="flex justify-between px-2 py-1 mb-2">
-        <span className="text-sm">3 April 2024</span>
+        <span className="text-sm">{formatDate(blog.userId.createdAt)}</span>
         <span className="flex">
           <LuSignalMedium /> <span className="text-sm">123,412</span>
         </span>
@@ -55,9 +64,11 @@ const Card = ({ blog }) => {
         />
         <div className="item-star">
           <p className="text-sm font-semibold leading-tight text-gray-900">
-            Emily Lee
+            {blog.userId.username ? blog.userId.username : "Author"}
           </p>
-          <p className="text-sm leading-tight text-gray-600">3 April 2023</p>
+          <p className="text-sm leading-tight text-gray-600">
+            {formatDate(blog.userId.createdAt)}
+          </p>
         </div>
       </div>
     </div>
