@@ -37,11 +37,11 @@ const Form = ({ type, onSubmit }) => {
       <img
         src="https://images.pexels.com/photos/20147085/pexels-photo-20147085/free-photo-of-a-mountain-is-seen-in-the-distance-with-trees.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
         alt=""
-        className="h-[250px] object-cover rounded-md mb-2"
+        className="h-[150px] object-cover rounded-md mb-2"
       />
       <form
         className="mx-auto container writeform relative mt-4"
-        onChange={handleSubmit}
+        onSubmit={handleSubmit}
       >
         <div className="writeFormGroup flex items-center justify-around shadow-lg flex-wrap">
           <label htmlFor="fileInput">
@@ -102,7 +102,10 @@ const Form = ({ type, onSubmit }) => {
             className="writeInput writeText p-20 text-4xl w-[70vw] focus:outline-none"
           />
         </div>
-        <button className="writeSubmit absolute top-20 right-20 bg-teal-300 p-2 rounded-md cursor-pointer text-xl">
+        <button
+          type="submit"
+          className="writeSubmit absolute top-20 right-20 bg-teal-300 p-2 rounded-md cursor-pointer text-xl"
+        >
           Publish
         </button>
       </form>

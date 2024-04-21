@@ -13,7 +13,7 @@ const Card = ({ blog }) => {
   };
   return (
     <div
-      className="flex flex-col w-[400px] h-[500px] m-1 shadow-lg"
+      className="flex flex-col w-[400px] h-[400px] m-1 shadow-lg hover:shadow-slate-900 hover:opacity-70 p-2"
       key={blog._id}
     >
       <div className="flex justify-between px-2 py-1 mb-2">
@@ -22,20 +22,21 @@ const Card = ({ blog }) => {
           <LuSignalMedium /> <span className="text-sm">123,412</span>
         </span>
       </div>
-      <div className="mb-2">
-        <img
-          src={
-            blog.imageUrl
-              ? blog.imageUrl
-              : "https://images.pexels.com/photos/20877190/pexels-photo-20877190/free-photo-of-plaza-de-espana.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-          }
-          className="rounded-md object-cover w-screen h-[150px] flex text-left"
-          alt=""
-          title="A tips to make a lot of money"
-          loading="lazy"
-        />
-      </div>
       <Link to={`/blog/${blog._id}`}>
+        <div className="mb-2">
+          <img
+            src={
+              blog.imageUrl
+                ? blog.imageUrl
+                : "https://images.pexels.com/photos/20877190/pexels-photo-20877190/free-photo-of-plaza-de-espana.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+            }
+            className="rounded-lg object-cover w-screen h-[150px] flex text-left "
+            alt=""
+            title="A tips to make a lot of money"
+            loading="lazy"
+          />
+        </div>
+
         <div className="blogHeading">
           <h1 className="mt-6 text-lg font-semibold text-gray-900">
             {blog.title}
